@@ -24,7 +24,7 @@ function App() {
     <section>
       <h2>Pacotes</h2>
       <div className='pacotes'>
-        {data.map(e => <Pacote pacote={e} />)}
+        {data.map(e => <Pacote pacote={e} key={e.id}/>)}
       </div>
     </section>
   )
