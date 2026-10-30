@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Pacote from './Pacote'
 import type { PacoteType } from './types'
@@ -20,11 +21,17 @@ const data: Array<PacoteType> = [
 ]
 
 function App() {
+  const [pacotes, setPacotes] = useState(data);
+
+  function excluirPacote(id: string) {
+    setPacotes(pacotes.filter(e=>e.id!== id));
+  }
+
   return (
     <section>
       <h2>Pacotes</h2>
       <div className='pacotes'>
-        {data.map(e => <Pacote pacote={e} key={e.id}/>)}
+        {pacotes.map(e => (<Pacote pacote={e} acaoExcluir={excluirPacote} key={e.id}/>))}
       </div>
     </section>
   )
