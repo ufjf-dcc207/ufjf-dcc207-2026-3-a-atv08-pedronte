@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Pacote from './Pacote'
 import type { PacoteType } from './types'
+import ListaPacotes from './ListaPacotes'
 
 const data: Array<PacoteType> = [
   {
@@ -31,7 +32,7 @@ function App() {
     <section>
       <h2>Pacotes</h2>
       <div className='pacotes'>
-        {pacotes.map(e => (<Pacote pacote={e} acaoExcluir={excluirPacote} key={e.id}/>))}
+        <ListaPacotes pacotes={pacotes} acaoExcluir={excluirPacote} />
       </div>
     </section>
   )
